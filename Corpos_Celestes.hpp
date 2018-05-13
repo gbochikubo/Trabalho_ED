@@ -1,33 +1,28 @@
-#include "Corpos_Celestes.hpp"
-#include <iostream>
-#include <cstring>
-using namespace std;
+#ifndef CORPOS_CELESTES_H
 
-CorposCelestes :: CorposCelestes(unsigned int id, const char nome[50]){
-	this->_id = id;
-	strcpy(_nome,nome);
+#define CORPOS_CELESTESS_H
 
-}
+class CorposCelestes{
+	private:
+		unsigned int _id;
+		char _nome[50];
+		char _tipo[50];
+		 double _distancia;
+		char _localizacao[20];
+		char _descricao[200];
+	public:
+		CorposCelestes(unsigned int _id, const char nome[50]);
+		//~CorposCelestes();
+		void insereTipo( const char tipo[50]);
+		void insereDistancia( double distancia);
+		void insereLocalizacao(const char localizacao[20]);
+		void insereDescricao(const char descricao[200]);
+		//~ void alteraNome(int id, char nome[50]);
+		//~ void alteraDistancia(int id, double distancia);
+		//~ void alteraTipo(int id, char tipo[50]);
+		//~ void alteraDescricao(int id, char descricao[200]);
+		void imprime();
+};
 
-void CorposCelestes :: insereTipo(const char tipo[50]){
-	strcpy(_tipo,tipo);
-	
-}
-
-void CorposCelestes :: insereDistancia( double distancia){
-	this->_distancia = distancia;
-}
-
-void CorposCelestes :: insereLocalizacao(const char localizacao[20]){
-	strcpy(_localizacao,localizacao);
-}
-
-void CorposCelestes :: insereDescricao (const char descricao[200]){
-	strcpy(_descricao,descricao);
-}
-
-void CorposCelestes :: imprime (){
-	cout << _id << endl << _nome << endl << _tipo << endl;
-	cout << _distancia << endl << _localizacao << endl <<_descricao << endl;
-}
+#endif
 
